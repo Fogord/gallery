@@ -31,8 +31,6 @@
   </div>
 </template>
 <script>
-// import utils from "../js/utils";
-
 export default {
   name: "Gallery",
   data() {

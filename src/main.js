@@ -1,22 +1,22 @@
 import Vue from "vue";
-// подключаем vuetify без стилей от vuetify
+// import vuetify without styles
 import Vuetify from "vuetify";
-// подключаем router
+// import router
 import VueRouter from "vue-router";
-// подключаем store (там только инфа о авторизованом пользователе, очен примитивно, сделано модульно)
+// import store (There is flag about sign in user only)
 import store from "./store";
 
-// импортируем страницы
+// import pages
 import App from "./App.vue";
 import Auth from "./Auth.vue";
 import Greetings from "./Greetings.vue";
 import Gallery from "./Gallery.vue";
 
-// импортируем middleware
+// import middleware
 import guest from "./route/middleware/guest";
 import auth from "./route/middleware/auth";
 
-// описываем маршруты
+// paths
 const routes = [
   {
     path: "",
@@ -41,27 +41,27 @@ const routes = [
   }
 ];
 
-//инициализируем роутер с выстаавлеными путями
+//init router
 const router = new VueRouter({
   mode: "history",
   routes
 });
 
 router.beforeEach((to, from, next) => {
-  // проверяем есть ли свойтсво у маршрута
+  // check property at path obj
   if (!to.meta.middleware) {
     return next();
   }
-  // свойство найдено
+  // property is
   const middleware = to.meta.middleware;
-  // создаем необходимы контекст для проверки в выставленном middleware в meta
+  // create context to check restriction in middleware
   const context = {
     to,
     from,
     next,
     store
   };
-  // так как у нас толкьо одина проверка, необходимо сделать конвеер проверок
+
   return middleware[0]({
     ...context
   });
