@@ -11,7 +11,9 @@
       </div>
     </div>
     <div class="galleryContent">
-      <img :src="imgs[selectedImgIndex]" @click="showInFullScreen()" />
+      <div class="galleryImg">
+        <img :src="imgs[selectedImgIndex]" @click="showInFullScreen()" />
+      </div>
       <v-list class="galleryList">
         <v-list-item-group v-model="selectedImgIndex" mandatory>
           <v-list-item
@@ -97,7 +99,7 @@ export default {
 .fullScreen-container {
   position: relative;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   height: 100%;
   justify-content: center;
 }
@@ -157,19 +159,25 @@ export default {
 }
 
 .gallery {
-  width: 600px;
-  height: 500px;
   margin: auto;
 }
 
 .galleryContent {
   display: flex;
   flex-direction: row;
-  width: 600px;
-  height: 500px;
   border: 1px solid #888;
   border-radius: 10px;
   padding: 10px;
+  height: 90vh;
+}
+
+.galleryImg {
+  flex-grow: 1;
+}
+
+.galleryImg img {
+  width: 100%;
+  height: 100%;
 }
 
 .galleryList {
