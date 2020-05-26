@@ -2,8 +2,8 @@
   <div class="gallery">
     <div class="fullScreen" v-show="showFullScreen">
       <div class="fullScreen-content">
-        <span class="close" @click="showInFullScreen()">&times;</span>
-        <div>
+        <div class="fullScreen-container">
+          <span class="close" @click="showInFullScreen()">&times;</span>
           <span class="arrow left" @click="left()"></span>
           <img :src="imgs[selectedImgIndex]" />
           <span class="arrow right" @click="right()"></span>
@@ -94,14 +94,17 @@ export default {
   cursor: pointer;
 }
 
-.fullScreen-content div {
+.fullScreen-container {
+  position: relative;
   display: flex;
   flex-direction: row;
   height: 100%;
+  justify-content: center;
 }
 
-.fullScreen-content div img {
-  flex: 1;
+.fullScreen-container img {
+  height: 100%;
+  width: auto;
 }
 
 .close {
@@ -109,6 +112,9 @@ export default {
   float: right;
   font-size: 28px;
   font-weight: bold;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .close:hover,
@@ -125,18 +131,22 @@ export default {
   height: 50px;
   padding: 3px;
   border-radius: 5px;
+  position: absolute;
+  top: calc(50% - 25px);
 }
 
 .right {
   margin: auto;
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
+  right: 0;
 }
 
 .left {
   margin: auto;
   transform: rotate(135deg);
   -webkit-transform: rotate(135deg);
+  left: 0;
 }
 
 .right:hover,
