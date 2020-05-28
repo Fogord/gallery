@@ -77,18 +77,14 @@ export default {
   },
   methods: {
     login() {
-      console.log(this.email, this.password);
       // правильнй пароль 123
       if (this.password !== "123") {
         this.error = true;
         return;
       }
-      // сохраняем email если все ок
-      localStorage.setItem("email", this.email);
-      localStorage.setItem("isSignin", true);
-      // выставялем флаг о том что пользователь авторизовался
-      this.$store.dispatch("auth/setAuth");
-      // переходим дольше
+      // change flag of user auth
+      this.$store.dispatch("auth/setAuth", this.email);
+      // go to next page
       this.$router.push({ path: "/greetings" });
     }
   }
