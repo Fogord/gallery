@@ -196,4 +196,8 @@ export default {
 .selected {
   border-color: #888;
 }
+
+.galleryListContent:focus {
+  outline: none;
+}
 </style>
