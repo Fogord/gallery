@@ -19,7 +19,11 @@
           <v-list-item
             v-for="(img, i) in imgs"
             :key="i"
-            :class="selectedImgIndex === i ? 'selected' : ''"
+            :class="
+              'galleryListContent' +
+                ' ' +
+                (selectedImgIndex === i ? 'selected' : '')
+            "
           >
             <v-list-item-content>
               <img :src="img" style="width: 100%;" />
@@ -184,9 +188,12 @@ export default {
   padding: 8px 8px 8px 0px;
 }
 
-.selected {
-  color: blue;
-  border: 1px solid #888;
+.galleryListContent {
+  border: 1px solid transparent;
   border-radius: 10px;
+}
+
+.selected {
+  border-color: #888;
 }
 </style>
