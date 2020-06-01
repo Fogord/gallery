@@ -12,9 +12,18 @@ export default {
 </script>
 <style>
 .greetings {
-  width: 600px;
-  font-size: 1.675rem;
-  margin: auto;
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%;
+  font-size: 1rem;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+}
+
+@media (min-width: 768px) {
+  .greetings {
+    display: block;
+  }
 }
 </style>

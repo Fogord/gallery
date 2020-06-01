@@ -76,8 +76,8 @@ export default {
   display: block;
   position: fixed;
   z-index: 1;
-  left: 0;
-  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
   width: 100%;
   height: 100%;
   overflow: auto;
@@ -170,7 +170,7 @@ export default {
   border: 1px solid #888;
   border-radius: 10px;
   padding: 10px;
-  height: 90vh;
+  height: 94vh;
 }
 
 .galleryImg {
@@ -178,12 +178,12 @@ export default {
 }
 
 .galleryImg img {
-  width: 100%;
+  width: calc(100vw - 150px);
   height: 100%;
 }
 
 .galleryList {
-  width: 20%;
+  max-width: 150px;
   overflow-y: auto;
   padding: 8px 8px 8px 0px;
 }
