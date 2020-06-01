@@ -152,13 +152,29 @@ button {
   margin-left: auto;
   text-align: center;
   text-transform: uppercase;
-  background-color: #486e18;
+  background-color: #6b923a;
   box-sizing: border-box;
   font-size: 0.875rem;
   line-height: 16px;
-  border: 0 solid currentColor;
+  border: 0px solid #334e11;
   border-radius: 10px;
   user-select: none;
   -webkit-font-smoothing: antialiased;
+  transition: 1s;
+}
+
+button:disabled {
+  background-color: #808080;
+}
+
+button:disabled:hover {
+  background-color: #808080;
+}
+
+button:not(:disabled):hover {
+  background-color: #486e18;
+  box-sizing: border-box;
+  font-size: 1rem;
+  border: 0px solid #334e11;
 }
 </style>
