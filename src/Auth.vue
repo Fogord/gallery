@@ -161,6 +161,10 @@ button {
   transition: 1s;
 }
 
+button:focus {
+  outline: none;
+}
+
 button:disabled {
   background-color: #808080;
 }
