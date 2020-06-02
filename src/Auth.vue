@@ -3,7 +3,6 @@
     <v-card-title class="title">
       Sign In
     </v-card-title>
-    <v-divider></v-divider>
     <v-form id="auth" ref="form" v-model="valid">
       <div>
         <label for="email">
@@ -29,7 +28,6 @@
         ></v-text-field>
       </div>
     </v-form>
-    <v-divider></v-divider>
     <v-card-actions>
       <v-btn
         @click="
@@ -91,14 +89,16 @@ export default {
 };
 </script>
 <style>
-.title {
-  text-align: center;
+.signInForm {
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  align-items: center;
+  justify-content: center;
 }
 
-.signInForm {
-  width: 600px;
-  border-radius: 4px;
-  margin: auto;
+.signInForm .title {
+  text-align: center;
 }
 
 .signInForm input {
@@ -114,20 +114,19 @@ export default {
 
 .v-text-field__details {
   display: block;
-  margin: 12px 0 0 0;
-  font-size: 0.875rem;
+  font-size: 0.675rem;
   color: red;
 }
 
 .textField input {
-  width: 100%;
   background: lightgrey;
+  min-width: 250px;
+  max-width: 300px;
   min-height: 36px;
   font-size: 1.125rem;
   line-height: 21px;
   text-align: left;
   display: inline-block;
-  margin: 0 10px 0 0;
 }
 
 .textField input:focus {
@@ -143,22 +142,53 @@ export default {
 
 button {
   display: block;
-  width: 100%;
-  max-width: 288px;
-  height: 48px;
+  min-width: 250px;
+  max-width: 300px;
   min-height: 48px;
+  font-size: 1.125rem;
+  line-height: 21px;
   margin-top: 20px;
   margin-right: auto;
   margin-left: auto;
   text-align: center;
   text-transform: uppercase;
-  background-color: #486e18;
+  background-color: #6b923a;
   box-sizing: border-box;
   font-size: 0.875rem;
   line-height: 16px;
-  border: 0 solid currentColor;
+  border: 0px solid #334e11;
   border-radius: 10px;
-  user-select: none;
-  -webkit-font-smoothing: antialiased;
+  transition: 1s;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:disabled {
+  background-color: #808080;
+}
+
+button:disabled:hover {
+  background-color: #808080;
+}
+
+button:not(:disabled):hover {
+  background-color: #486e18;
+  box-sizing: border-box;
+  font-size: 1rem;
+  border: 0px solid #334e11;
+}
+
+@media (min-width: 768px) {
+  .textField input {
+    min-width: 400px;
+    max-width: 500px;
+  }
+
+  button {
+    min-width: 400px;
+    max-width: 500px;
+  }
 }
 </style>

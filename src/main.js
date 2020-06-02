@@ -1,6 +1,7 @@
 import Vue from "vue";
 // import vuetify without styles
 import Vuetify from "vuetify";
+import "normalize.css";
 // import router
 import router from "./router";
 // import store (There is flag about sign in user only)
