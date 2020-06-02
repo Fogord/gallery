@@ -18,7 +18,11 @@ const mutations = {
 
 // actions
 const actions = {
-  setAuth({ commit }) {
+  setAuth({ commit }, email) {
+    // сохраняем email если все ок
+    localStorage.setItem("email", email);
+    localStorage.setItem("isSignin", true);
+
     commit("SET_AUTH");
   }
 };

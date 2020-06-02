@@ -16,7 +16,6 @@ export default {
 <style>
 body {
   background: white;
-  padding: 20px;
   font-family: Helvetica;
 }
 

@@ -19,7 +19,11 @@
           <v-list-item
             v-for="(img, i) in imgs"
             :key="i"
-            :class="selectedImgIndex === i ? 'selected' : ''"
+            :class="
+              'galleryListContent' +
+                ' ' +
+                (selectedImgIndex === i ? 'selected' : '')
+            "
           >
             <v-list-item-content>
               <img :src="img" style="width: 100%;" />
@@ -72,8 +76,8 @@ export default {
   display: block;
   position: fixed;
   z-index: 1;
-  left: 0;
-  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
   width: 100%;
   height: 100%;
   overflow: auto;
@@ -166,7 +170,7 @@ export default {
   border: 1px solid #888;
   border-radius: 10px;
   padding: 10px;
-  height: 90vh;
+  height: 94vh;
 }
 
 .galleryImg {
@@ -174,19 +178,26 @@ export default {
 }
 
 .galleryImg img {
-  width: 100%;
+  width: calc(100vw - 150px);
   height: 100%;
 }
 
 .galleryList {
-  width: 20%;
+  max-width: 150px;
   overflow-y: auto;
   padding: 8px 8px 8px 0px;
 }
 
-.selected {
-  color: blue;
-  border: 1px solid #888;
+.galleryListContent {
+  border: 1px solid transparent;
   border-radius: 10px;
+}
+
+.selected {
+  border-color: #888;
+}
+
+.galleryListContent:focus {
+  outline: none;
 }
 </style>
